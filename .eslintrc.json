@@ -1,3 +1,28 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    // aquí puedes añadir o sobrescribir reglas específicas
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": [
+    "*.config.js", // o simplemente "config.js" si esos archivos tienen exactamente ese nombre
+    "node_modules/",
+    "dist/"
+    // cualquier otro archivo o carpeta que quieras excluir
+  ]
 }
