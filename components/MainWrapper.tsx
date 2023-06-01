@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import MainNavbar from "../components/Navbar";
 import MainSidebar from "../components/Sidebar";
 import { sideBarMock } from "../mocks/sidebar.mock";
@@ -9,7 +10,12 @@ interface MainWrapperProps {
   children: React.ReactNode;
 }
 export const MainWrapper = ({ children }: MainWrapperProps) => {
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const [isSidebarOpen, setIsSidebarOpen] = useState(!isMobile);
+
+  useEffect(() => {
+    setIsSidebarOpen(!isMobile);
+  }, [isMobile]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
